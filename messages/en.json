@@ -1,4 +1,26 @@
 {
   "title": "Car Payment Calculator",
-  "tagline": "Fast, accurate, privacy-friendly. Localized currency, no signup."
+  "tagline": "Fast, accurate, privacy-friendly. Local currency, no signup.",
+  "calculator": {
+    "currency": "Currency",
+    "vehiclePrice": "Vehicle price",
+    "downPayment": "Down payment",
+    "apr": "APR (%)",
+    "termMonths": "Term (months)",
+    "extraPayment": "Extra monthly payment",
+    "exportCSV": "Export CSV",
+    "exportPDF": "Export PDF",
+    "results": "Results",
+    "monthlyPayment": "Monthly payment",
+    "totalInterest": "Total interest",
+    "totalPaid": "Total paid",
+    "payoffTime": "Payoff time",
+    "amortizationChart": "Amortization chart (balance)",
+    "first12Months": "First 12 months (table)",
+    "month": "Month",
+    "payment": "Payment",
+    "interest": "Interest",
+    "principal": "Principal",
+    "balance": "Balance"
+  }
 }

@@ -1,4 +1,26 @@
 {
   "title": "Autokreditrechner",
-  "tagline": "Schnell, genau, datenschutzfreundlich. Lokale W\u00e4hrung, keine Anmeldung."
+  "tagline": "Schnell, genau, datenschutzfreundlich. Lokale Währung, keine Anmeldung.",
+  "calculator": {
+    "currency": "Währung",
+    "vehiclePrice": "Fahrzeugpreis",
+    "downPayment": "Anzahlung",
+    "apr": "Eff. Jahreszins (%)",
+    "termMonths": "Laufzeit (Monate)",
+    "extraPayment": "Zusätzliche Monatszahlung",
+    "exportCSV": "CSV exportieren",
+    "exportPDF": "PDF exportieren",
+    "results": "Ergebnisse",
+    "monthlyPayment": "Monatsrate",
+    "totalInterest": "Gesamtzinsen",
+    "totalPaid": "Gesamtzahlung",
+    "payoffTime": "Tilgungsdauer",
+    "amortizationChart": "Amortisationsdiagramm (Saldo)",
+    "first12Months": "Erste 12 Monate (Tabelle)",
+    "month": "Monat",
+    "payment": "Zahlung",
+    "interest": "Zinsen",
+    "principal": "Tilgung",
+    "balance": "Saldo"
+  }
 }

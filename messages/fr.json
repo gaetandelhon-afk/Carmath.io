@@ -1,4 +1,26 @@
 {
-  "title": "Calculateur de mensualit\u00e9s auto",
-  "tagline": "Rapide, pr\u00e9cis, respectueux de la vie priv\u00e9e. Devise locale, sans inscription."
+  "title": "Calculateur de mensualités auto",
+  "tagline": "Rapide, précis, respectueux de la vie privée. Devise locale, sans inscription.",
+  "calculator": {
+    "currency": "Devise",
+    "vehiclePrice": "Prix du véhicule",
+    "downPayment": "Apport",
+    "apr": "TAEG (%)",
+    "termMonths": "Durée (mois)",
+    "extraPayment": "Paiement mensuel supplémentaire",
+    "exportCSV": "Exporter CSV",
+    "exportPDF": "Exporter PDF",
+    "results": "Résultats",
+    "monthlyPayment": "Mensualité",
+    "totalInterest": "Intérêts totaux",
+    "totalPaid": "Total payé",
+    "payoffTime": "Durée de remboursement",
+    "amortizationChart": "Courbe d’amortissement (solde)",
+    "first12Months": "12 premiers mois (tableau)",
+    "month": "Mois",
+    "payment": "Paiement",
+    "interest": "Intérêts",
+    "principal": "Principal",
+    "balance": "Solde"
+  }
 }
