@@ -37,7 +37,6 @@ type Props = {
 const CURRENCIES = ['USD', 'EUR', 'GBP', 'CAD', 'AUD', 'SEK', 'INR', 'BRL'] as const;
 
 export default function CarPaymentCalculator({ locale, dict }: Props) {
-  // Inputs
   const [price, setPrice] = useState<number>(30000);
   const [down, setDown] = useState<number>(3000);
   const [apr, setApr] = useState<number>(6.9);
@@ -45,7 +44,6 @@ export default function CarPaymentCalculator({ locale, dict }: Props) {
   const [extra, setExtra] = useState<number>(0);
   const [currency, setCurrency] = useState<string>('USD');
 
-  // currency depuis cookie (middleware)
   useEffect(() => {
     const m = document.cookie.match(/(?:^|; )app_currency=([^;]+)/);
     if (m && CURRENCIES.includes(decodeURIComponent(m[1]) as any)) {
@@ -66,7 +64,6 @@ export default function CarPaymentCalculator({ locale, dict }: Props) {
 
   const fmt = (n: number) => formatCurrency(locale, currency, n);
 
-  // CSV
   const exportCSV = () => {
     const header = [dict.month, dict.payment, dict.interest, dict.principal, dict.balance];
     const rows = result.schedule.map((r) => [
@@ -86,7 +83,6 @@ export default function CarPaymentCalculator({ locale, dict }: Props) {
     URL.revokeObjectURL(url);
   };
 
-  // PDF
   const exportPDF = () => {
     const doc = new jsPDF({ unit: 'pt', format: 'a4' });
     const line = (y: number, text: string) => doc.text(text, 40, y);
@@ -127,7 +123,6 @@ export default function CarPaymentCalculator({ locale, dict }: Props) {
 
   return (
     <div className="grid md:grid-cols-2 gap-6">
-      {/* LEFT: Inputs */}
       <div className="grid gap-3">
         <div>
           <label className="label">{dict.currency}</label>
@@ -170,7 +165,6 @@ export default function CarPaymentCalculator({ locale, dict }: Props) {
         </div>
       </div>
 
-      {/* RIGHT: Results */}
       <div className="grid gap-3">
         <div className="card">
           <h2 className="mb-2">{dict.results}</h2>

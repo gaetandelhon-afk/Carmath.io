@@ -34,7 +34,6 @@ export default function PaymentChart({
         <XAxis dataKey="month" />
         <YAxis
           tickFormatter={(v) =>
-            // enlever le symbole monétaire pour garder des ticks courts
             formatValue(v).replace(/[^\d.,-]/g, '')
           }
           label={{ value: yLabel, angle: -90, position: 'insideLeft' }}
