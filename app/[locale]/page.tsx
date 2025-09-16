@@ -1,41 +1,40 @@
-'use client';
-
+// app/[locale]/page.tsx
 import CarPaymentCalculator from '@/components/CarPaymentCalculator';
 import { isLocale } from '@/lib/i18n';
-import { useTranslations } from 'next-intl';
 
-export default function Page({ params }: { params: { locale: string } }) {
+export default async function Page({ params }: { params: { locale: string } }) {
   const locale = isLocale(params.locale) ? params.locale : 'en';
-  const t = useTranslations();
+
+  const messages = (await import(`../../messages/${locale}.json`)).default as any;
 
   const dict = {
-    currency: t('calculator.currency'),
-    vehiclePrice: t('calculator.vehiclePrice'),
-    downPayment: t('calculator.downPayment'),
-    apr: t('calculator.apr'),
-    termMonths: t('calculator.termMonths'),
-    extraPayment: t('calculator.extraPayment'),
-    exportCSV: t('calculator.exportCSV'),
-    exportPDF: t('calculator.exportPDF'),
-    results: t('calculator.results'),
-    monthlyPayment: t('calculator.monthlyPayment'),
-    totalInterest: t('calculator.totalInterest'),
-    totalPaid: t('calculator.totalPaid'),
-    payoffTime: t('calculator.payoffTime'),
-    amortizationChart: t('calculator.amortizationChart'),
-    first12Months: t('calculator.first12Months'),
-    month: t('calculator.month'),
-    payment: t('calculator.payment'),
-    interest: t('calculator.interest'),
-    principal: t('calculator.principal'),
-    balance: t('calculator.balance'),
+    currency: messages.calculator.currency,
+    vehiclePrice: messages.calculator.vehiclePrice,
+    downPayment: messages.calculator.downPayment,
+    apr: messages.calculator.apr,
+    termMonths: messages.calculator.termMonths,
+    extraPayment: messages.calculator.extraPayment,
+    exportCSV: messages.calculator.exportCSV,
+    exportPDF: messages.calculator.exportPDF,
+    results: messages.calculator.results,
+    monthlyPayment: messages.calculator.monthlyPayment,
+    totalInterest: messages.calculator.totalInterest,
+    totalPaid: messages.calculator.totalPaid,
+    payoffTime: messages.calculator.payoffTime,
+    amortizationChart: messages.calculator.amortizationChart,
+    first12Months: messages.calculator.first12Months,
+    month: messages.calculator.month,
+    payment: messages.calculator.payment,
+    interest: messages.calculator.interest,
+    principal: messages.calculator.principal,
+    balance: messages.calculator.balance
   };
 
   return (
     <div className="grid gap-6">
       <div className="card">
-        <h1>{t('title')}</h1>
-        <p className="mt-2 text-neutral-600">{t('tagline')}</p>
+        <h1>{messages.title}</h1>
+        <p className="mt-2 text-neutral-600">{messages.tagline}</p>
         <div className="mt-6">
           <CarPaymentCalculator locale={locale} dict={dict} />
         </div>
