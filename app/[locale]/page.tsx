@@ -5,6 +5,7 @@ import { isLocale } from '@/lib/i18n';
 export default async function Page({ params }: { params: { locale: string } }) {
   const locale = isLocale(params.locale) ? params.locale : 'en';
 
+  // Chargement direct des messages selon la locale
   const messages = (await import(`../../messages/${locale}.json`)).default as any;
 
   const dict = {
@@ -27,7 +28,11 @@ export default async function Page({ params }: { params: { locale: string } }) {
     payment: messages.calculator.payment,
     interest: messages.calculator.interest,
     principal: messages.calculator.principal,
-    balance: messages.calculator.balance
+    balance: messages.calculator.balance,
+    // 🔽 ajout des 3 clés attendues par le composant
+    reportTitle: messages.calculator.reportTitle,
+    reportSummary: messages.calculator.reportSummary,
+    reportAmortizationTitle: messages.calculator.reportAmortizationTitle
   };
 
   return (
