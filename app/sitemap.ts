@@ -1,14 +1,32 @@
-import { MetadataRoute } from 'next'
-import { locales } from '@/lib/i18n'
+import { MetadataRoute } from 'next';
+import { locales } from '@/lib/i18n';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://carmath.io'
-  const paths = ['', '/car-payment-calculator'].flatMap(p => 
+  const base = 'https://carmath.io';
+  const pages = [
+    '',                 // home (calculator)
+    '/calculators',
+    '/guides',
+    '/guides/car-payment-explained',
+    '/guides/bi-weekly-vs-monthly',
+    '/guides/refinancing-car-loan',
+    '/glossary',
+    '/glossary/apr',
+    '/glossary/ltv',
+    '/glossary/dti',
+    '/glossary/residual-value',
+    '/glossary/money-factor',
+    '/countries',
+    '/countries/us',
+    '/countries/fr'
+  ];
+
+  const urls = pages.flatMap(p =>
     locales.map(l => ({
       url: `${base}/${l}${p}`,
       changefreq: 'weekly' as const,
-      priority: 0.8
+      priority: p === '' ? 1.0 : 0.7
     }))
-  )
-  return paths
+  );
+  return urls;
 }

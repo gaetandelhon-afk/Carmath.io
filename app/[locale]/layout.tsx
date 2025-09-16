@@ -1,4 +1,3 @@
-// app/[locale]/layout.tsx
 import '../globals.css';
 import { ReactNode } from 'react';
 import Link from 'next/link';
@@ -12,6 +11,25 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   const locale = isLocale(params.locale) ? (params.locale as Locale) : 'en';
+
+  const orgLd = {
+    '@context':'https://schema.org',
+    '@type':'Organization',
+    name:'CarMath.io',
+    url:'https://carmath.io',
+    logo:'https://carmath.io/icon.png'
+  };
+  const siteLd = {
+    '@context':'https://schema.org',
+    '@type':'WebSite',
+    name:'CarMath.io',
+    url:'https://carmath.io',
+    potentialAction:{
+      '@type':'SearchAction',
+      target:'https://carmath.io/{search_term_string}',
+      'query-input':'required name=search_term_string'
+    }
+  };
 
   return (
     <html lang={locale}>
@@ -32,6 +50,8 @@ export default function RootLayout({
         <footer className="container py-10 text-sm text-neutral-500">
           © {new Date().getFullYear()} CarMath.io · Educational purposes only.
         </footer>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(orgLd)}} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(siteLd)}} />
       </body>
     </html>
   );

@@ -1,11 +1,9 @@
-// app/[locale]/page.tsx
 import CarPaymentCalculator from '@/components/CarPaymentCalculator';
 import { isLocale } from '@/lib/i18n';
+import Link from 'next/link';
 
 export default async function Page({ params }: { params: { locale: string } }) {
   const locale = isLocale(params.locale) ? params.locale : 'en';
-
-  // Chargement direct des messages selon la locale
   const messages = (await import(`../../messages/${locale}.json`)).default as any;
 
   const dict = {
@@ -29,10 +27,31 @@ export default async function Page({ params }: { params: { locale: string } }) {
     interest: messages.calculator.interest,
     principal: messages.calculator.principal,
     balance: messages.calculator.balance,
-    // 🔽 ajout des 3 clés attendues par le composant
     reportTitle: messages.calculator.reportTitle,
     reportSummary: messages.calculator.reportSummary,
     reportAmortizationTitle: messages.calculator.reportAmortizationTitle
+  };
+
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type':'Question',
+        name:'How is the car payment calculated?',
+        acceptedAnswer:{'@type':'Answer', text:'With the standard amortization formula using APR divided by 12 and total months. Our calculator shows monthly payment, total interest and payoff time.'}
+      },
+      {
+        '@type':'Question',
+        name:'Can I save by paying extra?',
+        acceptedAnswer:{'@type':'Answer', text:'Yes. Extra monthly payments reduce the balance faster, lowering interest and shortening the term.'}
+      },
+      {
+        '@type':'Question',
+        name:'Does the tool use my local currency?',
+        acceptedAnswer:{'@type':'Answer', text:'Yes. We detect locale & currency; you can also switch manually.'}
+      }
+    ]
   };
 
   return (
@@ -40,10 +59,21 @@ export default async function Page({ params }: { params: { locale: string } }) {
       <div className="card">
         <h1>{messages.title}</h1>
         <p className="mt-2 text-neutral-600">{messages.tagline}</p>
+
         <div className="mt-6">
           <CarPaymentCalculator locale={locale} dict={dict} />
         </div>
+
+        <div className="mt-6 text-sm">
+          <div className="flex gap-4 flex-wrap">
+            <Link className="underline" href={`/${locale}/calculators`}>All calculators</Link>
+            <Link className="underline" href={`/${locale}/guides`}>Guides</Link>
+            <Link className="underline" href={`/${locale}/glossary`}>Glossary</Link>
+            <Link className="underline" href={`/${locale}/countries`}>Countries</Link>
+          </div>
+        </div>
       </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(faqLd)}} />
     </div>
   );
 }
