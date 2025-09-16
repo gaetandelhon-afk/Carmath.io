@@ -1,4 +1,4 @@
-import './globals.css'
+import '../globals.css'
 import { ReactNode } from 'react'
 import Link from 'next/link'
 import { isLocale, Locale, locales } from '@/lib/i18n'
