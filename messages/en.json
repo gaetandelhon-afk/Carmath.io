@@ -21,6 +21,9 @@
     "payment": "Payment",
     "interest": "Interest",
     "principal": "Principal",
-    "balance": "Balance"
+    "balance": "Balance",
+    "reportTitle": "Car Payment Report",
+    "reportSummary": "Locale: {locale}   Currency: {currency}",
+    "reportAmortizationTitle": "Amortization (first {n} months)"
   }
 }

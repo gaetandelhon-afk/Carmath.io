@@ -21,6 +21,9 @@
     "payment": "Zahlung",
     "interest": "Zinsen",
     "principal": "Tilgung",
-    "balance": "Saldo"
+    "balance": "Saldo",
+    "reportTitle": "Autokredit-Bericht",
+    "reportSummary": "Sprache: {locale}   Währung: {currency}",
+    "reportAmortizationTitle": "Amortisation (erste {n} Monate)"
   }
 }

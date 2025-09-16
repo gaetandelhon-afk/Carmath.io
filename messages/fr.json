@@ -21,6 +21,9 @@
     "payment": "Paiement",
     "interest": "Intérêts",
     "principal": "Principal",
-    "balance": "Solde"
+    "balance": "Solde",
+    "reportTitle": "Rapport de mensualités auto",
+    "reportSummary": "Langue : {locale}   Devise : {currency}",
+    "reportAmortizationTitle": "Amortissement (premiers {n} mois)"
   }
 }

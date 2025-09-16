@@ -2,33 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base */
 :root {
   color-scheme: light dark;
 }
-body {
-  @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50;
+
+html, body {
+  @apply bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50;
+  font-feature-settings: "ss02", "cv02", "tnum";
 }
+
 .container {
-  @apply max-w-5xl mx-auto px-4;
+  @apply max-w-6xl mx-auto px-4 sm:px-6;
 }
+
+/* Cards & surfaces */
 .card {
-  @apply rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/60 backdrop-blur p-6;
+  @apply rounded-3xl shadow-sm border border-neutral-200/60 dark:border-neutral-800/70
+         bg-white/80 dark:bg-neutral-900/60 backdrop-blur p-6 sm:p-8;
 }
+
+/* Inputs */
 .input {
-  @apply w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500;
+  @apply w-full rounded-2xl border border-neutral-300/80 dark:border-neutral-700/70
+         bg-white/90 dark:bg-neutral-900/70 px-4 py-2.5 outline-none
+         focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition;
 }
+
 .label {
-  @apply text-sm text-neutral-600 dark:text-neutral-300;
+  @apply text-sm font-medium text-neutral-600 dark:text-neutral-300 mb-1 block;
 }
+
+/* Buttons */
 .btn {
-  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition;
+  @apply inline-flex items-center justify-center rounded-2xl px-4 py-2.5
+         border border-neutral-200 dark:border-neutral-800
+         bg-white dark:bg-neutral-900
+         hover:bg-neutral-100 dark:hover:bg-neutral-800
+         transition shadow-sm;
 }
-h1 {
-  @apply text-3xl font-semibold tracking-tight;
+
+.btn.primary {
+  @apply border-blue-600/20 bg-blue-600 text-white hover:bg-blue-500;
 }
-h2 {
-  @apply text-xl font-semibold tracking-tight;
-}
-small.muted {
-  @apply text-neutral-500;
+
+/* Headings */
+h1 { @apply text-4xl font-semibold tracking-tight; }
+h2 { @apply text-xl font-semibold tracking-tight; }
+
+small.muted { @apply text-neutral-500; }
+
+/* KPI numbers */
+.kpi {
+  @apply text-2xl sm:text-3xl font-semibold tracking-tight;
 }
